@@ -1,0 +1,21 @@
+{
+  "name": "edbcli",
+  "version": "1.0.0",
+  "description": "CLI for Easy Discord Bot",
+  "main": "./bin/app.js",
+  "bin": {
+    "edb": "./bin/app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benoit Lamonica",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^5.0.1",
+    "chalk": "^4.1.1",
+    "express": "^4.17.1",
+    "simple-git": "^2.40.0",
+    "yargs": "^17.0.1"
+  }
+}
