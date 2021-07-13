@@ -1,9 +1,9 @@
 const fs = require('fs');
 const fsPromises = require('fs').promises;
-const boxen = require('boxen');
 const chalk = require('chalk');
 const { exec } = require("child_process");
-const data = require('../data');
+const data = require('../../data');
+const Utils = require('../../utils/utils');
 
 function craftBot(argv) {
     console.info(chalk.hex('#5765f2')(`Crafting the awesome bot ${chalk.hex('#619937')(argv.appName)}...`))
@@ -27,12 +27,7 @@ function craftBot(argv) {
                 if (err) {
                     throw err;
                 }
-                console.info(boxen(chalk.hex('#5765f2')(`Bot ${chalk.hex('#619937')(argv.appName)} crafted !`),
-                    {
-                        padding: 1,
-                        borderColor: 'green',
-                        dimBorder: true
-                    }))
+                Utils.boxedMsg('Bot', argv.appName);
             })
         })
 
@@ -40,4 +35,4 @@ function craftBot(argv) {
 
 }
 
-exports.craftBot = craftBot
+module.exports = craftBot;
