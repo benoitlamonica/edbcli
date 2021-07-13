@@ -7,7 +7,7 @@ const { craftBot } = require("./core/core");
 
 
 yargs(hideBin(process.argv))
-    .command('create [appName]', 'create new Easy discord bot app', (yargs) => {
+    .command('new [appName]', 'create new Easy discord bot app', (yargs) => {
         return yargs.positional('appName', {
             describe: "Name of the app",
             default: "MySuperBot"
