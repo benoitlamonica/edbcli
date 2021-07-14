@@ -6,6 +6,7 @@ const data = require('../../data');
 const Utils = require('../../utils/utils');
 
 function craftBot(argv) {
+
     console.info(chalk.hex('#5765f2')(`Crafting the awesome bot ${chalk.hex('#619937')(argv.appName)}...`))
 
     fsPromises.mkdir(`./${argv.appName}`, { recursive: true }).then((path) => {
@@ -21,6 +22,13 @@ function craftBot(argv) {
                 if (err) {
                     throw err;
                 }
+            });
+
+            fs.readFile(`${argv.appName}/.env`, (file) => {
+                let newFile = file.replace('!bot', `!${argv.appName}`);
+                fs.writeFile('./.env', newFile, (err) => {
+                    if (err) { console.error(err); return }
+                })
             });
 
             fs.writeFile(`${argv.appName}/README.md`, `# Tell the world how your ${argv.appName} works !`, (err) => {

@@ -1,3 +1,5 @@
+const Utils = require("../utils/utils")
+
 module.exports = {
     gitRepo: 'https://github.com/benoitlamonica/easydiscordbot.git',
     cmdHeader: `// Automaticaly generated on the ${new Date().toLocaleDateString('fr-FR')}`,
@@ -18,6 +20,12 @@ module.exports = {
             type: 'input',
             name: 'methodName',
             message: 'Name of the method in CommandHandler ?',
+            validate(value) {
+                if (Utils.isCamelCase(value)) {
+                    return true
+                }
+                return 'Method should be in camel case ! (likeThis 🙂)'
+            },
             default: 'handlerName',
         },
         {
@@ -60,11 +68,12 @@ module.exports = {
     },
 
     methodTemplate: {
-        methodFooter: `\n\n    //---
+        methodFooter: `\n\n    //--- /!\ Do no touch this line /!\
 
 }
     
 exports.CommandHandler = CommandHandler;`,
+
         methodAsync: `methodName = async () => {
         return 'Hello command **** !'
     }`,

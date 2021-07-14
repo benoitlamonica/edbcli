@@ -4,6 +4,10 @@ const data = require('../data');
 
 class Utils {
 
+    static isCamelCase = (str) => {
+        return /^([a-z]+)(([A-Z]([a-z]+))+)$/.test(str) && !str.includes('_')
+    }
+
     static formatCmdObj = (file, cmdName) => {
         let newFile = file.replace(/\}/g, '');
         newFile = newFile.replace(/\n/g, '');

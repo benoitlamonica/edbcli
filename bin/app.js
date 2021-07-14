@@ -25,7 +25,16 @@ yargs(hideBin(process.argv))
     }, (argv) => {
         commands.addCommand(argv.cmdName);
     })
-    .usage(chalk.hex('#5765f2')('\n CLI of Easy Discord bot'))
+    .command('set:dtoken [token]', 'Set the discord token of your bot', (yargs) => {
+        return yargs.positional('token', {
+            describe: "Name of cmd",
+            default: "mycmd"
+        })
+
+    }, (argv) => {
+        commands.addCommand(argv.token);
+    })
+    .usage(chalk.hex('#5765f2')('\n Easy Discord bot CLI'))
     .argv
 
 
