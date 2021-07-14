@@ -1,4 +1,4 @@
-const Utils = require("../utils/utils")
+const StringUtils = require("../utils/string")
 
 module.exports = {
     gitRepo: 'https://github.com/benoitlamonica/easydiscordbot.git',
@@ -21,7 +21,7 @@ module.exports = {
             name: 'methodName',
             message: 'Name of the method in CommandHandler ?',
             validate(value) {
-                if (Utils.isCamelCase(value)) {
+                if (StringUtils.isCamelCase(value)) {
                     return true
                 }
                 return 'Method should be in camel case ! (likeThis 🙂)'
@@ -34,6 +34,27 @@ module.exports = {
             message: 'Describe your command :',
             default: 'Sample description...',
         }
+    ],
+    craftBotQuestion: [
+        {
+            type: 'input',
+            name: 'botName',
+            message: 'Name of the bot ?',
+            default: 'mysuperbot',
+        },
+        {
+            type: 'input',
+            name: 'cmdName',
+            message: 'What the command to activate the bot should be ? (ex : !bot) :',
+            default: '!bot',
+        },
+        {
+            type: 'input',
+            name: 'dToken',
+            message: 'What\'s your discord token ? :',
+            default: 'mydiscordtoken',
+        },
+
     ],
     cmdBody: {
         bodyWithArgs: `module.exports = {
@@ -68,22 +89,26 @@ module.exports = {
     },
 
     methodTemplate: {
-        methodFooter: `\n\n    //--- /!\ Do no touch this line /!\
+        methodFooter: `\n\n    //--- /!\\ Do not touch this line /!\\
 
 }
     
 exports.CommandHandler = CommandHandler;`,
 
         methodAsync: `methodName = async () => {
+        // Logic goes here ...
         return 'Hello command **** !'
     }`,
         methodAsyncWithArg: `methodName = async (arg) => {
+        // Logic goes here ...
         return 'Hello command **** !'
     }`,
         methodWithArg: `methodName = (arg) => {
+        // Logic goes here ...
         return 'Hello command **** !'
     }`,
         method: `methodName = () => {
+        // Logic goes here ...
         return 'Hello command **** !'
     }`,
     }

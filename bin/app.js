@@ -7,11 +7,8 @@ const commands = require("./core");
 
 
 yargs(hideBin(process.argv))
-    .command('new [appName]', 'create new Easy discord bot app', (yargs) => {
-        return yargs.positional('appName', {
-            describe: "Name of the app",
-            default: "MySuperBot"
-        })
+    .command('new', 'create new Easy discord bot app', (yargs) => {
+        return yargs;
 
     }, (argv) => {
         commands.craftBot(argv);
@@ -32,9 +29,9 @@ yargs(hideBin(process.argv))
         })
 
     }, (argv) => {
-        commands.addCommand(argv.token);
+        commands.setToken(argv.token);
     })
-    .usage(chalk.hex('#5765f2')('\n Easy Discord bot CLI'))
+    .usage(chalk.hex('#5765f2')('\n 🔥 Easy Discord bot CLI 🔥'))
     .argv
 
 
