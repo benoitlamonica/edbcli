@@ -2,6 +2,10 @@
   "name": "edbcli",
   "version": "1.4.0",
   "description": "CLI for Easy Discord Bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benoitlamonica/edbcli.git"
+  },
   "main": "./bin/app.js",
   "bin": {
     "edb": "./bin/app.js"
