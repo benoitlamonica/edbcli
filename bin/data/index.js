@@ -1,35 +1,81 @@
 module.exports = {
     gitRepo: 'https://github.com/benoitlamonica/easydiscordbot.git',
     cmdHeader: `// Automaticaly generated on the ${new Date().toLocaleDateString('fr-FR')}`,
+    addCmdQuestion: [
+        {
+            type: 'confirm',
+            name: 'isAsync',
+            message: 'Should the command be Async ?',
+            default: false,
+        },
+        {
+            type: 'confirm',
+            name: 'hasArgs',
+            message: 'Should the command have Args ?',
+            default: false,
+        },
+        {
+            type: 'input',
+            name: 'methodName',
+            message: 'Name of the method in CommandHandler ?',
+            default: 'handlerName',
+        },
+        {
+            type: 'input',
+            name: 'desc',
+            message: 'Describe your command :',
+            default: 'Sample description...',
+        }
+    ],
     cmdBody: {
         bodyWithArgs: `module.exports = {
     name: '****',
-    description: 'Sample description',
+    description: 'DESC',
     execute: (msg, arg) => {
         new ReponseBot(msg).useCommandHandler('handlerName', {arg: arg});
     }
 }`,
         body: `module.exports = {
     name: '****',
-    description: 'Sample description',
+    description: 'DESC',
     execute: (msg, arg) => {
         new ReponseBot(msg).useCommandHandler('handlerName');
     }
 }`,
         bodyAsync: `module.exports = {
     name: '****',
-    description: 'Sample description',
+    description: 'DESC',
     execute: (msg, arg) => {
         new ReponseBot(msg).useCommandHandler('handlerName', {async: true});
     }
 }`,
         bodyAsyncWithArgs: `module.exports = {
     name: '****',
-    description: 'Sample description',
+    description: 'DESC',
     execute: (msg, arg) => {
         new ReponseBot(msg).useCommandHandler('handlerName', {arg: arg, async: true});
     }
 }`,
         require: `const { ReponseBot } = require("../../vendor/config/response")`
+    },
+
+    methodTemplate: {
+        methodFooter: `\n\n    //---
+
+}
+    
+exports.CommandHandler = CommandHandler;`,
+        methodAsync: `methodName = async () => {
+        return 'Hello command **** !'
+    }`,
+        methodAsyncWithArg: `methodName = async (arg) => {
+        return 'Hello command **** !'
+    }`,
+        methodWithArg: `methodName = (arg) => {
+        return 'Hello command **** !'
+    }`,
+        method: `methodName = () => {
+        return 'Hello command **** !'
+    }`,
     }
 }
