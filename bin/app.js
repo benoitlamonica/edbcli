@@ -7,7 +7,7 @@ const commands = require("./core");
 
 
 yargs(hideBin(process.argv))
-    .command('new', 'create new Easy discord bot app', (yargs) => {
+    .command('new', 'create new Bease app', (yargs) => {
         return yargs;
 
     }, (argv) => {
@@ -31,7 +31,7 @@ yargs(hideBin(process.argv))
     }, (argv) => {
         commands.setToken(argv.token);
     })
-    .usage(chalk.hex('#5765f2')('\n 🔥 Easy Discord bot CLI 🔥'))
+    .usage(chalk.hex('#5765f2')('\n 🔥 Bease CLI 🔥'))
     .argv
 
 

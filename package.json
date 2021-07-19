@@ -1,6 +1,6 @@
 {
   "name": "edbcli",
-  "version": "1.5.5",
+  "version": "1.5.8",
   "description": "CLI for Easy Discord Bot",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "./bin/app.js",
   "bin": {
-    "edb": "./bin/app.js"
+    "bease": "./bin/app.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
