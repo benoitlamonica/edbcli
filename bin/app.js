@@ -31,7 +31,7 @@ yargs(hideBin(process.argv))
     }, (argv) => {
         commands.setToken(argv.token);
     })
-    .usage(chalk.hex('#5765f2')('\n 🔥 Bease CLI 🔥'))
+    .usage(chalk.hex('#6182ff')('\n 🔥 Bease CLI 🔥'))
     .argv
 
 
