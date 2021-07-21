@@ -20,7 +20,7 @@ class Utils {
     }
 
     static boxedMsg = (objCrafted, name) => {
-        console.info(boxen(chalk.hex('#5765f2')(`${objCrafted} ${chalk.hex('#619937')(name)} crafted !`), {
+        console.info(boxen(chalk.hex('#6182ff')(`${objCrafted} ${chalk.hex('#619937')(name)} crafted !`), {
             padding: 1,
             borderColor: 'green',
             dimBorder: true
